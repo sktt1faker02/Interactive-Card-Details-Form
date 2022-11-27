@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="./app.js" defer></script>
+
+    <title>Frontend Mentor | Interactive card details form</title>
+
+    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+    <style>
+      .attribution {
+        font-size: 11px;
+        text-align: center;
+        margin-top: 1.5rem;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="card">
+        <div class="card_container">
+          <div class="card_front">
+            <img
+              class="front_card"
+              src="./images/bg-card-front.png"
+              alt="bg-card-front"
+            />
+            <div class="card_front_info">
+              <img class="logo" src="./images/card-logo.svg" alt="card-logo" />
+              <p id="card_number">0000 0000 0000 0000</p>
+              <div class="card_name_details">
+                <p id="card_name">Jane Appleseed</p>
+                <p id="card_expr_date">
+                  <span id="month_value">00</span>/<span id="year_value"
+                    >00</span
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="card_back">
+            <img
+              class="back_card"
+              src="./images/bg-card-back.png"
+              alt="bg-card-back"
+            />
+            <p id="cvc">000</p>
+          </div>
+        </div>
+      </section>
+      <aside>
+        <form>
+          <div class="card_input">
+            <p class="card_label">Cardholder Name</p>
+            <input
+              class="card_input_info"
+              id="input_card_name"
+              type="text"
+              placeholder="e.g. Jane Appleseed"
+            />
+            <p class="text_error">Can't be blank</p>
+          </div>
+
+          <div class="card_input">
+            <p class="card_label">Card Number</p>
+            <input
+              class="card_input_info"
+              id="input_card_number"
+              type="text"
+              maxlength="19"
+              placeholder="e.g. 1234 5678 9123 0000"
+            />
+            <p class="text_error">Can't be blank</p>
+          </div>
+
+          <div class="card_input exp_date">
+            <div class="flex_exp">
+              <p class="card_label">Exp. Date (MM/YY)</p>
+              <input
+                id="month"
+                type="text"
+                placeholder="MM"
+                maxlength="2"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+              />
+
+              <input
+                class="card_input_info"
+                id="year"
+                type="text"
+                maxlength="2"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+                placeholder="YY"
+              />
+              <p class="text_error">Can't be blank</p>
+            </div>
+            <div class="cvc_flex">
+              <p class="card_label">CVC</p>
+              <input
+                class="card_input_info"
+                id="input_cvc"
+                type="text"
+                placeholder="e.g. 123"
+                maxlength="3"
+                oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');"
+              />
+              <p class="text_error">Can't be blank</p>
+            </div>
+          </div>
+          <div class="thank_you">
+            <img src="./images/icon-complete.svg" alt="icon-complete" />
+            <p class="thank_you_text">Thank you!</p>
+            <p class="ty_description">We've added your card details</p>
+          </div>
+
+          <button id="submit">Confirm</button>
+        </form>
+      </aside>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Michael Tabilin</a>.
+    </div>
+  </body>
+</html>
